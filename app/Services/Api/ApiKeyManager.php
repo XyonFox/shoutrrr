@@ -14,7 +14,7 @@ use Laravel\Passport\Client;
 use Laravel\Passport\ClientRepository;
 use Laravel\Passport\Passport;
 use Laravel\Passport\Token;
-use phpseclib3\Crypt\RSA;
+use phpseclib4\Crypt\RSA;
 use RuntimeException;
 
 class ApiKeyManager
@@ -24,7 +24,7 @@ class ApiKeyManager
      * workspace binding + metadata. Returns [ApiKey, plaintextToken]; the
      * plaintext is shown to the user exactly once.
      *
-     * @param  'read'|'write'  $scope
+     * @param  string  $scope  Validated at runtime to be 'read' or 'write'.
      * @return array{0: ApiKey, 1: string}
      */
     public function issue(Workspace $workspace, User $user, string $name, string $scope, ?CarbonInterface $expiresAt): array

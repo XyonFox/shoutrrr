@@ -210,10 +210,6 @@ class XConnector implements PublishConnector, RepostConnector
         $lastUrl = end($matches[0]);
         $lastId = end($matches[1]);
 
-        if ($lastUrl === false || $lastId === false) {
-            return [$text, null];
-        }
-
         [$url, $offset] = $lastUrl;
         $quoteTweetId = $lastId[0];
 
